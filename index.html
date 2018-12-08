@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery Clone Example</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".myTable tr.clone").clone(!0).removeClass("clone").addClass("clone2").insertAfter(".clone").hide();
+      $(".addmore").click(function () {
+        $(".myTable").find(".clone2").clone(!0).removeClass("clone2").addClass("clone").insertBefore(".clone2").show()
+      });
+      $(".remove").click(function () {
+        $(this).closest("tr").remove();
+      });
+    });
+  </script>
+</head>
+<body>
+  <table class="myTable">
+    <tbody>
+      <tr class="clone" style="">
+        <td>Feature</td>
+        <td><input type="text" name="title[]" placeholder="Title"></td>
+        <td><input type="text" name="des[]" placeholder="Description"></td>
+        <td>
+          <a class="remove" title="Remove">✖</a>
+          <a class="addmore" title="Add more">✚</a>
+        </td>
+      </tr>
+      <tr style="display:none"></tr>
+    </tbody>
+  </table>
+</body>
+</html>
